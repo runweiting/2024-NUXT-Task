@@ -20,7 +20,9 @@
     "@nuxt/eslint-config": "^0.6.1",
     "eslint": "8.57.0",
     "eslint-plugin-vue": "^9.30.0",
-    "git-cz": "^4.9.0"
+    "git-cz": "^4.9.0",
+    "typescript": "5.5.4",
+    "vue-tsc": "2.0.29"
   },
   "config": {
     "commitizen": {
