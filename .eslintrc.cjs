@@ -12,6 +12,7 @@ module.exports = {
   plugins: ['vue', 'prettier'],
   rules: {
     'no-undef': 'off',
+    'vue/multi-word-component-names': 'off',
     'prettier/prettier': 'error',
     'comma-dangle': ['error', 'never']
   }

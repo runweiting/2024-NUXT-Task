@@ -12,7 +12,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "nuxt": "^3.14.0",
+    "nuxt": "^3.14.159",
     "vue": "latest",
     "vue-router": "latest"
   },
@@ -29,7 +29,7 @@
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
     "typescript": "5.5.4",
-    "vue-tsc": "2.0.29"
+    "vue-tsc": "^2.1.10"
   },
   "config": {
     "commitizen": {
