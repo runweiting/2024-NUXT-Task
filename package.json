@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "lint": "eslint .",
+    "deploy": "npm run generate && gh-pages -d dist",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
@@ -23,6 +24,7 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-vue": "^9.30.0",
+    "gh-pages": "^6.2.0",
     "git-cz": "^4.9.0",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
