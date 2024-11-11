@@ -4,6 +4,8 @@
     <div class="flex space-x-2">
       <NuxtLink to="/" class="btn">首頁</NuxtLink>
       <NuxtLink to="/about" class="btn">關於</NuxtLink>
+      <NuxtLink to="/admin" class="btn">後台首頁</NuxtLink>
+      <NuxtLink to="/admin/order" class="btn">後台訂單頁</NuxtLink>
     </div>
   </header>
 </template>
