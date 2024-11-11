@@ -4,15 +4,16 @@
   "type": "module",
   "scripts": {
     "lint": "eslint --ext .ts,.js,.vue .",
-    "deploy": "npm run generate && gh-pages -d dist",
-    "build": "nuxt build",
+    "type-check": "vue-tsc --noEmit",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "build:safe": "pnpm type-check && nuxt build",
+    "generate:safe": "pnpm type-check && nuxt generate",
+    "deploy": "pnpm run generate:safe && gh-pages -d dist",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "nuxt": "^3.14.159",
+    "nuxt": "^3.14.0",
     "vue": "latest",
     "vue-router": "latest"
   },
@@ -32,7 +33,7 @@
     "prettier-plugin-tailwindcss": "^0.6.8",
     "tailwindcss": "^3.4.14",
     "typescript": "5.5.4",
-    "vue-tsc": "^2.1.10"
+    "vue-tsc": "^2.0.7"
   },
   "config": {
     "commitizen": {

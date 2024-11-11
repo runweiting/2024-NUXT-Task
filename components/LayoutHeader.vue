@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <header class="mx-20 my-5 rounded-3xl border-2 border-stone-300 p-10 text-stone-500">
     <p class="mb-5">這是預設的 LayoutHeader</p>
@@ -9,5 +7,3 @@
     </div>
   </header>
 </template>
-
-<style scoped></style>
