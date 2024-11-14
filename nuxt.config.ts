@@ -11,5 +11,10 @@ export default defineNuxtConfig({
   css: ['~/assets/css/tailwind.css'],
   app: {
     baseURL: '/2024-NUXT-Task/' // 設定 GitHub Pages 存放庫名稱
+  },
+  runtimeConfig: {
+    public: {
+      hexSchoolApiUrl: 'https://nuxr3.zeabur.app'
+    }
   }
 })

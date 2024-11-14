@@ -11,6 +11,14 @@ const title = ref('首頁')
       <p class="pt-2 font-elf text-2xl text-stone-400">
         ㄇㄨˋㄑㄧㄢˊㄌㄨˋㄧㄡˊㄉㄜ˙ㄌㄨˋㄐㄧㄥˋㄨㄟˊ route.fullPath: {{ route.fullPath }}
       </p>
+      <p class="pt-4 text-3xl font-semibold text-stone-700">最新消息</p>
+      <div class="mb-4 grid grid-cols-1 gap-2 pt-2">
+        <NewsCard />
+      </div>
+      <div class="mb-4 grid grid-cols-1 gap-2 pt-2">
+        <ProductCardHorizontal />
+        <ProductCardHorizontal />
+      </div>
       <div class="grid grid-cols-3 gap-2">
         <ProductCardStacked />
         <ProductCardStacked />
