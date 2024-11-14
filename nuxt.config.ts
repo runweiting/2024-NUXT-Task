@@ -10,7 +10,18 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/tailwindcss'],
   css: ['~/assets/css/tailwind.css'],
   app: {
-    baseURL: '/2024-NUXT-Task/' // 設定 GitHub Pages 存放庫名稱
+    // 設定 GitHub Pages 存放庫名稱
+    baseURL: '/2024-NUXT-Task/',
+    // 設置 active class
+    pageTransition: { name: 'page', mode: 'out-in' }
+  },
+  router: {
+    options: {
+      // 匹配到路由時添加 'active' class
+      // 完全匹配時添加 'active-exact' class
+      linkActiveClass: 'active',
+      linkExactActiveClass: 'active-exact'
+    }
   },
   runtimeConfig: {
     public: {

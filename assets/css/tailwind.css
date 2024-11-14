@@ -6,8 +6,8 @@
 
 /* 擴充自定元件 */
 @layer components {
-  .btn {
-    @apply rounded-3xl bg-stone-500 px-4 py-2 text-center text-white transition-all duration-300 hover:opacity-80 focus:ring-2 focus:ring-stone-300 focus:ring-offset-2 focus:ring-offset-stone-300 disabled:bg-stone-200;
+  .btn-active {
+    @apply rounded-3xl bg-stone-500 px-4 py-2 text-center text-white transition-all duration-200 hover:bg-stone-600 focus:ring-2 focus:ring-stone-200 focus:ring-offset-2 focus:ring-offset-stone-200 disabled:bg-stone-200 [&.active]:bg-stone-900 [&.active]:ring-2 [&.active]:ring-stone-300 [&.active]:ring-offset-2 [&.active]:ring-offset-stone-300;
   }
 }
 
