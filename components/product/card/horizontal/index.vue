@@ -38,18 +38,10 @@ const articleCard = reactive<ArticleData>({
       class="flex flex-col justify-between rounded-b border-b border-l border-r border-gray-400 bg-white p-4 leading-normal lg:rounded-b-none lg:rounded-r lg:border-l-0 lg:border-t lg:border-gray-400"
     >
       <div class="mb-8">
-        <p class="flex items-center text-sm text-gray-600">
-          <svg
-            class="mr-2 h-3 w-3 fill-current text-gray-500"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path
-              d="M4 8V6a6 6 0 1 1 12 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h1zm5 6.73V17h2v-2.27a2 2 0 1 0-2 0zM7 6v2h6V6a3 3 0 0 0-6 0z"
-            />
-          </svg>
-          {{ articleCard.badge }}
-        </p>
+        <div class="flex items-center space-x-2 text-sm text-stone-500">
+          <Icon class="h-5 w-5" name="mdi:lock" />
+          <p>{{ articleCard.badge }}</p>
+        </div>
         <div class="mb-2 text-xl font-bold text-gray-900">
           {{ articleCard.title }}
         </div>
