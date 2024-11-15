@@ -24,14 +24,14 @@ const articleCard = reactive<ArticleData>({
 </script>
 
 <template>
-  <section class="w-full max-w-sm lg:flex lg:max-w-full">
+  <section class="group w-full max-w-sm lg:flex lg:max-w-full">
     <div
-      class="h-48 flex-none overflow-hidden rounded-t lg:h-auto lg:w-48 lg:rounded-l lg:rounded-t-none"
+      class="h-48 flex-none overflow-hidden rounded-t lg:h-auto lg:w-48 lg:rounded-l lg:rounded-r-none"
     >
       <img
         :src="articleCard.imageUrl"
         :alt="articleCard.altText"
-        class="h-full w-full object-cover"
+        class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
       />
     </div>
     <div

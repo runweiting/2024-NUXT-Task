@@ -8,9 +8,7 @@ const { newsList, hasError, isLoading, refresh } = useHome()
   </div>
   <div v-else-if="hasError" class="text-center">
     <p class="text-red-600">Failed to load news. Please try again.</p>
-    <button type="button" class="mt-2 text-blue-600 hover:underline" @click="refresh()">
-      Retry
-    </button>
+    <button type="button" class="btn mt-2" @click="refresh()">Retry</button>
   </div>
   <section
     v-for="news in newsList"

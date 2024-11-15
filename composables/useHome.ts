@@ -1,31 +1,21 @@
-interface NewsData {
-  _id: string
-  title: string
-  description: string
-  image: string
-  createdAt: string
-  updatedAt: string
-  altText?: string
-}
-interface ApiResponse {
-  result: NewsData[]
-}
+import type { ApiResponse } from '~/types/api/ApiResponse'
+import type { NewsData, UseHomeReturn } from '~/types/news'
 
-export const useHome = () => {
+export const useHome = (): UseHomeReturn => {
   const runtimeConfig = useRuntimeConfig()
   const { hexSchoolApiUrl } = runtimeConfig.public
 
-  const { data, status, error, refresh } = useFetch<ApiResponse>(
+  const { data, status, error, refresh } = useFetch<ApiResponse<NewsData[]>>(
     `${hexSchoolApiUrl}/api/v1/home/news`,
     {
       transform: (data) => {
         return {
-          ...data,
+          ...data, // 原始 data
           result: data.result.map((news: NewsData) => ({
             ...news,
             createdAt: date2LocaleString(news.createdAt),
             updatedAt: date2LocaleString(news.updatedAt)
-          }))
+          })) // 將原始 data.result 進行格式化，返回更新後的 result
         }
       }
     }

@@ -10,6 +10,10 @@ const route = useRoute()
       <p class="pt-2 font-elf text-2xl text-stone-400">
         ㄇㄨˋㄑㄧㄢˊㄌㄨˋㄧㄡˊㄉㄜ˙ㄌㄨˋㄐㄧㄥˋㄨㄟˊ route.fullPath: {{ route.fullPath }}
       </p>
+      <p class="pt-4 text-3xl font-semibold text-stone-700">房型列表</p>
+      <div class="mb-4 grid grid-cols-1 gap-6 pt-2">
+        <RoomCard />
+      </div>
     </div>
   </main>
 </template>

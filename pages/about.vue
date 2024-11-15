@@ -4,10 +4,10 @@ const route = useRoute()
 
 <template>
   <main class="container">
-    <div class="h-auto rounded-3xl p-10">
-      <p class="text-3xl text-stone-500">這是 about 頁</p>
-      <p class="pt-12 font-elf text-7xl font-bold text-stone-500">Page: ㄓㄜˋㄕˋㄍㄨㄢㄩˊㄧㄝˋ</p>
-      <p class="pt-12 font-elf text-6xl text-stone-400">
+    <div class="h-auto rounded-3xl">
+      <p class="text-xl text-stone-500">這是 about 頁</p>
+      <p class="pt-2 font-elf text-3xl font-bold text-stone-500">Page: ㄓㄜˋㄕˋㄍㄨㄢㄩˊㄧㄝˋ</p>
+      <p class="pt-2 font-elf text-2xl text-stone-400">
         ㄇㄨˋㄑㄧㄢˊㄌㄨˋㄧㄡˊㄉㄜ˙ㄌㄨˋㄐㄧㄥˋㄨㄟˊ route.fullPath: {{ route.fullPath }}
       </p>
     </div>
