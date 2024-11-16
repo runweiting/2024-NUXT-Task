@@ -2,6 +2,7 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
+  imports: { autoImport: true },
   typescript: {
     // 建議開發時維持 true，只在 generate 時暫時改為 false
     // typeCheck: process.env.NODE_ENV === 'development'

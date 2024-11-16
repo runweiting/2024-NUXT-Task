@@ -1,7 +1,7 @@
 <template>
   <header class="mx-20 my-5 rounded-3xl border-2 border-stone-300 p-10 text-stone-500">
     <p class="mb-5">這是預設的 LayoutHeader</p>
-    <nav class="flex space-x-4">
+    <nav class="grid grid-cols-4 gap-4 md:grid-cols-6">
       <NuxtLink to="/" class="btn-active">首頁</NuxtLink>
       <NuxtLink to="/about" class="btn-active">關於</NuxtLink>
       <NuxtLink to="/rooms" class="btn-active">房型</NuxtLink>
