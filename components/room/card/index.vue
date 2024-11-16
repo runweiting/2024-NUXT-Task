@@ -19,11 +19,11 @@ const { roomTypeList, hasError, isLoading, refresh } = useRoomType()
   >
     <section class="group max-w-md overflow-hidden rounded-xl shadow-md md:max-w-2xl lg:max-w-full">
       <div class="md:flex">
-        <div class="grow">
+        <div class="overflow-hidden">
           <img
             :src="room.imageUrl"
             :alt="room.name"
-            class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105 md:h-full md:w-auto"
+            class="h-48 w-full object-cover transition-transform duration-300 group-hover:scale-105 md:h-full"
           />
         </div>
         <div class="flex flex-col justify-between p-4">

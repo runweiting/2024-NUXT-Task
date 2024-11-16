@@ -28,5 +28,9 @@ export default defineNuxtConfig({
     public: {
       hexSchoolApiUrl: 'https://nuxr3.zeabur.app'
     }
+  },
+  alias: {
+    // 將 notfound.vue 設為預設的 404 頁面
+    notfound: '~/pages/notfound.vue'
   }
 })
