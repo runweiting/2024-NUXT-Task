@@ -24,7 +24,7 @@ const pathParams = computed(() => {
         <div class="w-full p-4 text-center lg:w-1/2 lg:text-left">
           <div class="mb-4 text-3xl font-medium">噢不！找不到這個頁面 😮</div>
           <div class="mb-8 text-lg">您所請求的頁面：{{ pathParams }}，不存在。</div>
-          <NuxtLink to="/" class="btn">回首頁</NuxtLink>
+          <NuxtLink to="/" class="btn-active">回首頁</NuxtLink>
         </div>
       </div>
     </div>
