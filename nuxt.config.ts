@@ -13,7 +13,7 @@ export default defineNuxtConfig({
   app: {
     // 設定 GitHub Pages 存放庫名稱
     baseURL: '/2024-NUXT-Task/',
-    // 設置 active class
+    // 設置頁面轉場效果
     pageTransition: { name: 'page', mode: 'out-in' }
   },
   router: {
