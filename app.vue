@@ -1,7 +1,11 @@
+<script setup lang="ts"></script>
+
 <template>
   <div class="mx-20 my-5">
     <p class="text-stone-500">這是最外層的 app.vue</p>
   </div>
+  <CustomLoading />
+  <NuxtLoadingIndicator :height="5" :duration="5000" :throttle="0" />
   <NuxtLayout>
     <NuxtPage />
   </NuxtLayout>
