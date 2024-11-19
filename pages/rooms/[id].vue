@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { ApiResponse } from '~/types/api/ApiResponse'
+import type { ApiDataResponse } from '~/types/api/ApiResponse'
 import type { RoomType } from '~/types/roomTypes'
 
 const route = useRoute()
@@ -27,10 +27,11 @@ const defaultRoom: RoomType = {
 
 const runtimeConfig = useRuntimeConfig()
 const { hexSchoolApiUrl } = runtimeConfig.public
-const { data, status, error, refresh } = useFetch<ApiResponse<RoomType>>(
+const { data, status, error, refresh } = useFetch<ApiDataResponse<RoomType>>(
   `${hexSchoolApiUrl}/api/v1/rooms/${roomId}`,
   {
     transform: (data) => {
+      if (!data.status) return data
       const room = data.result
       return {
         ...data,
@@ -50,7 +51,7 @@ const { data, status, error, refresh } = useFetch<ApiResponse<RoomType>>(
     }
   }
 )
-const room = computed(() => data.value?.result || defaultRoom)
+const room = computed(() => (data.value?.status ? data.value?.result : defaultRoom))
 const hasError = computed(() => error.value !== null)
 const isLoading = computed(() => status.value === 'pending')
 const date2LocaleString = (date: string) => new Date(date).toLocaleDateString()

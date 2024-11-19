@@ -6,9 +6,9 @@ export default defineNuxtConfig({
   typescript: {
     // 建議開發時維持 true，只在 generate 時暫時改為 false
     // typeCheck: process.env.NODE_ENV === 'development'
-    typeCheck: false // 開發時開啟即時型別檢查
+    typeCheck: true // 開發時開啟即時型別檢查
   },
-  modules: ['@nuxtjs/tailwindcss', 'nuxt-icon-tw'],
+  modules: ['@nuxtjs/tailwindcss', 'nuxt-icon-tw', ['@vee-validate/nuxt', { autoImports: true }]],
   css: ['~/assets/css/tailwind.css', 'sweetalert2/dist/sweetalert2.min.css'],
   app: {
     // 設定 GitHub Pages 存放庫名稱
