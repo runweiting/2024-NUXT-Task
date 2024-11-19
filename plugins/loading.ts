@@ -1,6 +1,6 @@
 // 利用 loading 全域插件，來監控路由導航並觸發 isLoading 的更新
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin(() => {
   // ===== 設定 throttleTimer 機制  =====
   const isLoading = ref<boolean>(false)
   let throttleTimer: NodeJS.Timeout | null = null

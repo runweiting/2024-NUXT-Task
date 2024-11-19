@@ -9,7 +9,7 @@ export default defineNuxtConfig({
     typeCheck: false // 開發時開啟即時型別檢查
   },
   modules: ['@nuxtjs/tailwindcss', 'nuxt-icon-tw'],
-  css: ['~/assets/css/tailwind.css'],
+  css: ['~/assets/css/tailwind.css', 'sweetalert2/dist/sweetalert2.min.css'],
   app: {
     // 設定 GitHub Pages 存放庫名稱
     baseURL: '/2024-NUXT-Task/',
