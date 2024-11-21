@@ -8,7 +8,7 @@
     "dev": "nuxt dev",
     "build:safe": "pnpm type-check && nuxt build",
     "generate:safe": "pnpm type-check && nuxt generate",
-    "deploy": "pnpm run generate:safe && gh-pages -d dist",
+    "deploy": "pnpm run generate:safe && gh-pages -d .output/public",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
