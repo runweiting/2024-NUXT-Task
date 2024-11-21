@@ -1,5 +1,5 @@
 export interface UserAddress {
-  zipcode: number
+  zipcode: string
   detail: string
   city?: string
   county?: string

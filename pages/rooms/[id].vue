@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { ApiDataResponse } from '~/types/api/ApiResponse'
-import type { RoomType } from '~/types/roomTypes'
+import type { RoomType } from '~/types/RoomTypes'
 
 const route = useRoute()
 const router = useRouter()
