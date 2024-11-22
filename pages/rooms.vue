@@ -1,4 +1,8 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useHeadSafe({
+  title: '房型'
+})
+</script>
 
 <template>
   <main>

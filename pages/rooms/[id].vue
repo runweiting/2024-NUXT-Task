@@ -12,6 +12,25 @@ if (!route.params.id || Array.isArray(route.params.id)) {
   })
 }
 const { room, hasError, isLoading, refresh } = await getRoomInfo(route.params.id)
+// 取前 30個字作為 description
+const description = room.value.description.replace(/\n/g, ' ').substring(0, 30)
+useHeadSafe({
+  title: () => room.value.name
+})
+useSeoMeta({
+  description,
+  ogTitle: () => room.value.name,
+  ogDescription: description,
+  ogImage: () => room.value.imageUrl,
+  ogImageAlt: () => room.value.name,
+  ogUrl: () => `https://localhost/3000/rooms/${room.value._id}`,
+  twitterCard: 'summary_large_image',
+  twitterSite: '', // Twitter 帳號
+  twitterTitle: () => room.value.name,
+  twitterDescription: description,
+  twitterImage: () => room.value.imageUrl,
+  twitterImageAlt: () => room.value.name
+})
 </script>
 
 <template>

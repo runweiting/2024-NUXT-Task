@@ -1,4 +1,9 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+useHeadSafe({
+  title: '首頁',
+  titleTemplate: (title) => (title ? `${title} | 六角飯店` : '六角飯店')
+})
+</script>
 
 <template>
   <div class="mx-20 my-5">

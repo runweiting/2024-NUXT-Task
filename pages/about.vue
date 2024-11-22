@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const route = useRoute()
+useHeadSafe({
+  title: '關於'
+})
 </script>
 
 <template>

@@ -69,7 +69,7 @@ export const useRoom = (): useRoomReturn => {
     }
   }
   const getRoomInfo = async (roomId: string) => {
-    const { data, status, error, refresh } = useFetch<ApiDataResponse<RoomTypeApi>>(
+    const { data, status, error, refresh } = await useFetch<ApiDataResponse<RoomTypeApi>>(
       `${hexSchoolApiUrl}/api/v1/rooms/${roomId}`,
       {
         transform: (data) => {
@@ -79,13 +79,7 @@ export const useRoom = (): useRoomReturn => {
             ...data,
             result: {
               ...room,
-              price: room.price.toLocaleString('zh-TW', {
-                style: 'currency',
-                currency: 'TWD',
-                // 設定最少 0 位小數，最多 0 位小數
-                minimumFractionDigits: 0,
-                maximumFractionDigits: 0
-              }),
+              formattedPrice: formatPrice(room.price),
               createdAt: date2LocaleString(room.createdAt),
               updatedAt: date2LocaleString(room.updatedAt)
             }
@@ -93,12 +87,17 @@ export const useRoom = (): useRoomReturn => {
         }
       }
     )
-    const room = computed<RoomTypeFormatted[]>(() =>
+    const room = computed<RoomTypeApi>(() =>
       data.value?.status ? data.value?.result : defaultRoom
     )
     const hasError = computed(() => error.value !== null)
     const isLoading = computed(() => status.value === 'pending')
-    const date2LocaleString = (date: string) => new Date(date).toLocaleDateString()
+    return {
+      room,
+      hasError,
+      isLoading,
+      refresh
+    }
   }
 
   return {

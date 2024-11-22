@@ -1,5 +1,8 @@
 <script setup lang="ts">
 const route = useRoute()
+useHeadSafe({
+  title: '產品列表'
+})
 </script>
 
 <template>
