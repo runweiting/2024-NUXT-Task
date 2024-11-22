@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const { roomTypeList, hasError, isLoading, refresh } = useRoomType()
+const { getRoomList } = useRoom()
+const { roomTypeList, hasError, isLoading, refresh } = await getRoomList()
 </script>
 
 <template>

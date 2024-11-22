@@ -1,60 +1,17 @@
 <script setup lang="ts">
-import type { ApiDataResponse } from '~/types/api/ApiResponse'
-import type { RoomType } from '~/types/RoomTypes'
-
+const { errorToast } = useSweetAlert()
 const route = useRoute()
 const router = useRouter()
-const roomId = route.params.id
-
-// 定義預設 room
-const defaultRoom: RoomType = {
-  name: '',
-  description: '',
-  imageUrl: '',
-  imageUrlList: [],
-  areaInfo: '',
-  bedInfo: '',
-  maxPeople: 0,
-  price: 0,
-  status: 0,
-  layoutInfo: [],
-  facilityInfo: [],
-  amenityInfo: [],
-  _id: '',
-  createdAt: '',
-  updatedAt: ''
+const { getRoomInfo } = useRoom()
+// 使用型別守衛
+if (!route.params.id || Array.isArray(route.params.id)) {
+  errorToast('無效的房間 ID')
+  throw createError({
+    statusCode: 404,
+    message: '無效的房間 ID'
+  })
 }
-
-const runtimeConfig = useRuntimeConfig()
-const { hexSchoolApiUrl } = runtimeConfig.public
-const { data, status, error, refresh } = useFetch<ApiDataResponse<RoomType>>(
-  `${hexSchoolApiUrl}/api/v1/rooms/${roomId}`,
-  {
-    transform: (data) => {
-      if (!data.status) return data
-      const room = data.result
-      return {
-        ...data,
-        result: {
-          ...room,
-          price: room.price.toLocaleString('zh-TW', {
-            style: 'currency',
-            currency: 'TWD',
-            // 設定最少 0 位小數，最多 0 位小數
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 0
-          }),
-          createdAt: date2LocaleString(room.createdAt),
-          updatedAt: date2LocaleString(room.updatedAt)
-        }
-      }
-    }
-  }
-)
-const room = computed(() => (data.value?.status ? data.value?.result : defaultRoom))
-const hasError = computed(() => error.value !== null)
-const isLoading = computed(() => status.value === 'pending')
-const date2LocaleString = (date: string) => new Date(date).toLocaleDateString()
+const { room, hasError, isLoading, refresh } = await getRoomInfo(route.params.id)
 </script>
 
 <template>
