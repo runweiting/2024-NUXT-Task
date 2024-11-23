@@ -12,24 +12,31 @@ if (!route.params.id || Array.isArray(route.params.id)) {
   })
 }
 const { room, hasError, isLoading, refresh } = await getRoomInfo(route.params.id)
-// 取前 30個字作為 description
-const description = room.value.description.replace(/\n/g, ' ').substring(0, 30)
+
+// 使用 computed 處理共用的值
+const pageTitle = computed(() => room.value.name)
+const pageDescription = computed(() => room.value.description.replace(/\n/g, ' ').substring(0, 30))
+const pageImage = computed(() => room.value.imageUrl)
+const pageUrl = computed(() => `https://localhost/3000${route.fullPath}`)
+
 useHeadSafe({
   title: () => room.value.name
 })
 useSeoMeta({
-  description,
-  ogTitle: () => room.value.name,
-  ogDescription: description,
-  ogImage: () => room.value.imageUrl,
-  ogImageAlt: () => room.value.name,
-  ogUrl: () => `https://localhost/3000/rooms/${room.value._id}`,
+  description: pageDescription,
+  // Open Graph
+  ogTitle: pageTitle,
+  ogDescription: pageDescription,
+  ogImage: pageImage,
+  ogImageAlt: pageTitle,
+  ogUrl: pageUrl,
+  // Twitter
   twitterCard: 'summary_large_image',
   twitterSite: '', // Twitter 帳號
-  twitterTitle: () => room.value.name,
-  twitterDescription: description,
-  twitterImage: () => room.value.imageUrl,
-  twitterImageAlt: () => room.value.name
+  twitterTitle: pageTitle,
+  twitterDescription: pageDescription,
+  twitterImage: pageImage,
+  twitterImageAlt: pageTitle
 })
 </script>
 
