@@ -1,7 +1,7 @@
 import axios, { AxiosError } from 'axios'
 import { defineStore } from 'pinia'
 import type { ApiDataResponse, ApiStatusResponse, ErrorResponse } from '~/types/api/ApiResponse'
-import type { BaseUserInfo, UserSignup } from '~/types/User'
+import type { BaseUserInfo, UserSignup } from '../types/User'
 
 export const useUserStore = defineStore('user', () => {
   const { successToast, warningToast, errorToast } = useSweetAlert()
