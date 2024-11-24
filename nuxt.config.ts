@@ -7,14 +7,17 @@ export default defineNuxtConfig({
   // 3. 類型檢查
   typescript: {
     // 建議開發時維持 true，只在 generate 時暫時改為 false
-    typeCheck: process.env.NODE_ENV === 'development' || process.env.TYPE_CHECK === 'true'
+    typeCheck: process.env.NODE_ENV === 'development',
+    shim: false
   },
   // 4. 導入配置
   imports: { dirs: ['stores'] },
-  // 5. 別名配置
+  // 5. alias 別名配置
+  // 為了讓 Vue 的模組解析和 TypeScript 的解析邏輯保持一致。如果不設置 alias，可能會導致 Webpack/Vite 能解析，但 TypeScript 無法正確解析的問題。
+  // 確保與 .nuxt/tsconfig.json 和 ./tsconfig.json 的 alias 配置一致
   alias: {
-    // 將 notfound.vue 設為預設的 404 頁面
-    notfound: '~/pages/notfound.vue'
+    '~/': './',
+    '@': './'
   },
   // 6. CSS 樣式
   css: ['~/assets/css/tailwind.css', 'sweetalert2/dist/sweetalert2.min.css'],
