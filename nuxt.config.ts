@@ -7,7 +7,7 @@ export default defineNuxtConfig({
   // 3. 類型檢查
   typescript: {
     // 建議開發時維持 true，只在 generate 時暫時改為 false
-    typeCheck: process.env.NODE_ENV === 'development'
+    typeCheck: process.env.NODE_ENV === 'development' || process.env.TYPE_CHECK === 'true'
   },
   // 4. 導入配置
   imports: { dirs: ['stores'] },
