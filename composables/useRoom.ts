@@ -1,7 +1,7 @@
 import type { ApiDataResponse } from '~/types/api/ApiResponse'
-import type { RoomTypeApi, useRoomReturn } from '~/types/RoomTypes'
+import type { RoomTypeApi, UseRoomReturn } from '~/types/RoomTypes'
 
-export const useRoom = (): useRoomReturn => {
+export const useRoom = (): UseRoomReturn => {
   const runtimeConfig = useRuntimeConfig()
   const { hexSchoolApiUrl } = runtimeConfig.public
 

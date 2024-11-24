@@ -29,9 +29,8 @@ export default defineNuxtConfig({
   ],
   // 8. 應用配置
   app: {
-    // 設定 GitHub Pages 存放庫名稱
-    baseURL: '/2024-NUXT-Task/',
-    buildAssetsDir: 'assets',
+    baseURL: process.env.NUXT_APP_BASE_URL || '/',
+    buildAssetsDir: '/_nuxt/',
     // 設置頁面轉場效果
     pageTransition: { name: 'page', mode: 'out-in' },
     // 全站基礎設定
@@ -48,6 +47,8 @@ export default defineNuxtConfig({
         { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge,chrome=1' }, // 告訴 IE 使用 edge
         { 'http-equiv': 'X-Content-Type-Options', content: 'nosniff' }, // 防止瀏覽器猜測 MIME 類型
         { 'http-equiv': 'Cache-control', content: 'public, max-age=604800' },
+        { 'http-equiv': 'Permissions-Policy', content: 'interest-cohort=()' }, // 禁用 FLoC
+        { name: 'format-detection', content: 'telephone=no' }, // 防止自動偵測電話號碼
 
         // SEO 相關
         {
@@ -136,6 +137,12 @@ export default defineNuxtConfig({
     ISR：適合中等流量，因為生成靜態頁面仍需要後端處理，且背景再生成也會消耗資源。 */
 
   routeRules: {
+    // 添加全局資產快取
+    '/_nuxt/**': {
+      headers: {
+        'cache-control': 'public,max-age=31536000,immutable'
+      }
+    },
     '/': { prerender: true }, // 首頁在建構打包時預渲染
     '/admin/**': { ssr: false }, // 管理頁面，只需要在客戶端進行渲染 CSR
     '/register/**': { ssr: false },
@@ -143,7 +150,8 @@ export default defineNuxtConfig({
     '/products/**': { swr: 600 }, // 過期時間為 10 分鐘
     '/rooms/**': { isr: 3600 }, // 過期時間為 1 小時
     '/top100-products': { isr: 3600 }, // Top 100 產品頁面，過期時間為 1 小時
-    '/static': { isr: true } // 靜態頁面，只產生一次，直到下次部署才重新產生
+    '/static': { isr: true }, // 靜態頁面，只產生一次，直到下次部署才重新產生
+    '/error': { static: true }
   },
   // 10. 路由選項
   router: {
@@ -156,7 +164,7 @@ export default defineNuxtConfig({
   },
   // 11. Nitro 配置
   nitro: {
-    preset: 'github-pages'
+    preset: 'node-server'
   },
   // 12. 運行時配置
   runtimeConfig: {

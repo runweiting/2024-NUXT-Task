@@ -25,7 +25,7 @@ export interface RoomTypeApi {
 }
 
 // composable response type
-export interface useRoomReturn {
+export interface UseRoomReturn {
   getRoomList: () => Promise<{
     roomTypeList: ComputedRef<RoomTypeApi[]> // 已經過處理的資料
     hasError: ComputedRef<boolean> // 錯誤狀態
