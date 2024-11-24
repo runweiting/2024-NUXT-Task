@@ -1,6 +1,6 @@
 import { z } from 'zod'
 import { toTypedSchema } from '@vee-validate/zod'
-import type { UserSignup } from '~/types/User'
+import type { UserSignup } from '../types/User'
 import { useUserStore } from '~/stores/useUserStore'
 import zipcodeData from '~/assets/tw-zipcode.json'
 

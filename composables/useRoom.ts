@@ -1,5 +1,5 @@
 import type { ApiDataResponse } from '~/types/api/ApiResponse'
-import type { RoomTypeApi, UseRoomReturn } from '~/types/RoomTypes'
+import type { RoomTypeApi, UseRoomReturn } from '../types/RoomTypes'
 
 export const useRoom = (): UseRoomReturn => {
   const runtimeConfig = useRuntimeConfig()
