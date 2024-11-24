@@ -8,7 +8,7 @@ export const useHome = (): UseHomeReturn => {
   const { data, status, error, refresh } = useFetch<ApiDataResponse<NewsData[]>>(
     `${hexSchoolApiUrl}/api/v1/home/news`,
     {
-      transform: (data) => {
+      transform: (data: any) => {
         /* Type Narrowing 型別縮小：
         1. TypeScript 需在每個程式碼區塊中確定值的型別
         2. 通過條件判斷，幫助 TypeScript 縮小型別範圍
