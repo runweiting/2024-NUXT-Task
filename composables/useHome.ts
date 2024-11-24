@@ -1,5 +1,5 @@
 import type { ApiDataResponse } from '~/types/api/ApiResponse'
-import type { NewsData, UseHomeReturn } from '../types/News'
+import type { NewsData, UseHomeReturn } from '@/types/News'
 
 export const useHome = (): UseHomeReturn => {
   const runtimeConfig = useRuntimeConfig()
